@@ -1,11 +1,11 @@
 package com.inca.domain.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import com.inca.domain.model.InformationObject;
 
-@Transactional
+@Repository
 public interface InformationObjectRepository extends CrudRepository<InformationObject, Long> {
 	
 }
