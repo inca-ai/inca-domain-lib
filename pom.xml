@@ -31,6 +31,7 @@
 			<groupId>com.github.nooul</groupId>
 			<artifactId>spring-boot-rest-api-helpers</artifactId>
 			<version>a7782ba757</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
