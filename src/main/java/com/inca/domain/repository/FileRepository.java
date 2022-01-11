@@ -9,6 +9,5 @@ import com.inca.domain.model.FileInformation;
 
 @Repository
 public interface FileRepository extends CrudRepository<FileInformation, Long> {
-
 	public Optional<FileInformation> findByMd5(String md5);
 }
