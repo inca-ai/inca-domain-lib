@@ -1,7 +1,5 @@
 package com.inca.domain.model;
 
-import java.awt.Polygon;
-
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -45,5 +43,5 @@ public class DetectedText {
 	private int startTime;
 	
 	@Embedded
-	private Polygon boundingBox;
+	private Rectangle boundingBox;
 }
