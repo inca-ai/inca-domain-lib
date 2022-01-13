@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.inca.domain.model.InformationObject;
 import com.nooul.apihelpers.springbootrest.repositories.BaseRepository;
 
-@Repository
+// This is depreacted and shouldnt be used longer
+//@Repository
 public interface InformationObjectRepository extends BaseRepository<InformationObject, Long> {
 	public Page<InformationObject> findAll(Pageable pageable);
 	public Page<InformationObject> findAll(Specification<InformationObject> spec, Pageable pageable);

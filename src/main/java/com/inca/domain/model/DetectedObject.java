@@ -1,14 +1,13 @@
 package com.inca.domain.model;
 
-import java.util.List;
+import java.awt.Polygon;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,29 +18,23 @@ import lombok.ToString;
 
 @Entity
 @Table(schema = "inca")
-@ToString(callSuper=true, includeFieldNames=true)
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImageInformationObject extends InformationObject {
+public class DetectedObject {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToMany
-	private List<DetectedObject> detectedObjects;
-	
-	@OneToMany
-	private List<DetectedText> detectedTexts;
+	@Column
+	private String name;
 	
 	@Column
-	private String generatedCaption;
+	private int startTime;
 	
-	@Column
-	private int width;
-	
-	@Column
-	private int height;
+	@Embedded
+	private Polygon boundingBox;
 }

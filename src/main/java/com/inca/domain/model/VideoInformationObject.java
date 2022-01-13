@@ -1,6 +1,7 @@
 package com.inca.domain.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,11 +25,14 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImageInformationObject extends InformationObject {
+public class VideoInformationObject extends InformationObject {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@OneToMany
+	private List<SpokenText> spokenTexts;
 	
 	@ManyToMany
 	private List<DetectedObject> detectedObjects;
@@ -37,11 +41,20 @@ public class ImageInformationObject extends InformationObject {
 	private List<DetectedText> detectedTexts;
 	
 	@Column
-	private String generatedCaption;
-	
-	@Column
 	private int width;
 	
 	@Column
 	private int height;
+
+	public int getDuration() {
+		return spokenTexts.stream().map(x -> x.getDuration()).reduce(0, Integer::sum);
+	}
+	
+	public String getFullText() {
+		return spokenTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
+	}
+	
+	public List<Speaker> getAllSpeakers() {
+		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());
+	}
 }

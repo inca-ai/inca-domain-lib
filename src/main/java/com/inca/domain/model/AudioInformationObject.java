@@ -1,13 +1,12 @@
 package com.inca.domain.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,24 +23,24 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ImageInformationObject extends InformationObject {
+public class AudioInformationObject extends InformationObject {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToMany
-	private List<DetectedObject> detectedObjects;
-	
 	@OneToMany
-	private List<DetectedText> detectedTexts;
+	private List<SpokenText> spokenTexts;
+
+	public int getDuration() {
+		return spokenTexts.stream().map(x -> x.getDuration()).reduce(0, Integer::sum);
+	}
 	
-	@Column
-	private String generatedCaption;
+	public String getFullText() {
+		return spokenTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
+	}
 	
-	@Column
-	private int width;
-	
-	@Column
-	private int height;
+	public List<Speaker> getAllSpeakers() {
+		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());
+	}
 }
