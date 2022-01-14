@@ -79,4 +79,5 @@ public class InformationObject {
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<InformationObject> subInformationObjects;
+	
 }
