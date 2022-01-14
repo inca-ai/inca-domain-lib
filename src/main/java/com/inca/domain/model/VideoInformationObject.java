@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -45,15 +46,19 @@ public class VideoInformationObject extends InformationObject {
 	
 	@Column
 	private int height;
+	
+	@ManyToMany
+	private List<String> topics;
+	
+	@ManyToMany
+	private List<String> entities;
+	
+	@Column
+	private int duration;
+	
+	@Lob
+	private String text;
 
-	public int getDuration() {
-		return spokenTexts.stream().map(x -> x.getDuration()).reduce(0, Integer::sum);
-	}
-	
-	public String getFullText() {
-		return spokenTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
-	}
-	
 	public List<Speaker> getAllSpeakers() {
 		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());
 	}

@@ -3,10 +3,13 @@ package com.inca.domain.model;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,16 +33,20 @@ public class AudioInformationObject extends InformationObject {
 	private Long id;
 	
 	@OneToMany
-	private List<SpokenText> spokenTexts;
-
-	public int getDuration() {
-		return spokenTexts.stream().map(x -> x.getDuration()).reduce(0, Integer::sum);
-	}
+	private List<SpokenText> spokenTexts; 
 	
-	public String getFullText() {
-		return spokenTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
-	}
+	@ManyToMany
+	private List<String> topics;
 	
+	@ManyToMany
+	private List<String> entities;
+	
+	@Lob
+	private String text;
+	
+	@Column
+	private int duration;
+		
 	public List<Speaker> getAllSpeakers() {
 		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());
 	}

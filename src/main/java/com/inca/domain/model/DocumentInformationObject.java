@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,4 +37,10 @@ public class DocumentInformationObject extends InformationObject {
 	
 	@Lob
 	private String translatedText;
+	
+	@ManyToMany
+	private List<String> topics;
+	
+	@ManyToMany
+	private List<String> entities;	
 }

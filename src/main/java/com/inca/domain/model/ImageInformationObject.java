@@ -1,6 +1,7 @@
 package com.inca.domain.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,4 +45,15 @@ public class ImageInformationObject extends InformationObject {
 	
 	@Column
 	private int height;
+	
+	@ManyToMany
+	private List<String> topics;
+	
+	@ManyToMany
+	private List<String> entities;
+	
+	public String getFullText() {
+		return detectedTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
+	}
+	
 }
