@@ -48,10 +48,10 @@ public class VideoInformationObject extends InformationObject {
 	private int height;
 	
 	@ManyToMany
-	private List<String> topics;
+	private List<Topic> topics;
 	
 	@ManyToMany
-	private List<String> entities;
+	private List<NamedEntity> entities;
 	
 	@Column
 	private int duration;

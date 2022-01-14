@@ -36,10 +36,10 @@ public class AudioInformationObject extends InformationObject {
 	private List<SpokenText> spokenTexts; 
 	
 	@ManyToMany
-	private List<String> topics;
+	private List<Topic> topics;
 	
 	@ManyToMany
-	private List<String> entities;
+	private List<NamedEntity> entities;
 	
 	@Lob
 	private String text;
