@@ -58,6 +58,9 @@ public class VideoInformationObject extends InformationObject {
 	
 	@Lob
 	private String text;
+	
+	@OneToMany
+	private List<TableData> tables;
 
 	public List<Speaker> getAllSpeakers() {
 		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());

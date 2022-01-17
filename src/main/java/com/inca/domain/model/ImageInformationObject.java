@@ -52,6 +52,9 @@ public class ImageInformationObject extends InformationObject {
 	@ManyToMany
 	private List<NamedEntity> entities;
 	
+	@OneToMany
+	private List<TableData> tables;
+	
 	public String getFullText() {
 		return detectedTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
 	}
