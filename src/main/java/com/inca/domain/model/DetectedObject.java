@@ -35,4 +35,7 @@ public class DetectedObject {
 	
 	@Embedded
 	private Rectangle boundingBox;
+	
+	@Column
+	private int count;
 }
