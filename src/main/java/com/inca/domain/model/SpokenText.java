@@ -1,5 +1,7 @@
 package com.inca.domain.model;
 
+import java.util.Locale;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +36,7 @@ public class SpokenText {
 	private String translatedText;
 	
 	@Column
-	private String language;
+	private Locale language;
 	
 	@OneToOne
 	private Speaker speaker;

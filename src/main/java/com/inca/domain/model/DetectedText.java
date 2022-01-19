@@ -1,5 +1,7 @@
 package com.inca.domain.model;
 
+import java.util.Locale;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -34,7 +36,7 @@ public class DetectedText {
 	String translatedText;
 	
 	@Column
-	private String language; // Locale.getISOLanguages
+	private Locale language; // Locale.getISOLanguages
 	
 	@Column
 	private String author;

@@ -79,6 +79,9 @@ public class InformationObject {
 	@ElementCollection
 	private List<Integer> accessUsers;
 	
+	@ElementCollection
+	private List<Revision> revisions;
+	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<InformationObject> subInformationObjects;
 	

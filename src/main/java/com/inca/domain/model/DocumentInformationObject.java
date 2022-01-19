@@ -1,7 +1,9 @@
 package com.inca.domain.model;
 
 import java.util.List;
+import java.util.Locale;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +41,9 @@ public class DocumentInformationObject extends InformationObject {
 	
 	@Lob
 	private String translatedText;
+	
+	@Column
+	private Locale language;
 	
 	@ManyToMany
 	private List<Topic> topics;
