@@ -74,10 +74,10 @@ public class InformationObject {
 	private List<Tag> tags;
 	
 	@ElementCollection
-	private List<Integer> accessGroups;
+	private List<Long> accessGroups;
 	
 	@ElementCollection
-	private List<Integer> accessUsers;
+	private List<Long> accessUsers;
 	
 	@ElementCollection
 	private List<Revision> revisions;
