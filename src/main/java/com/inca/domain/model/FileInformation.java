@@ -44,7 +44,7 @@ public class FileInformation {
 	private Date expirationDate;
 
 	@Column
-	private String author;
+	private Long author;
 
 	@Column
 	private String folder;
