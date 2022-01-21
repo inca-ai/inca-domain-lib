@@ -32,9 +32,6 @@ public class FileInformation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToOne
-	private InformationObject informationObject;
-	
 	@Column
 	private String name;
 
