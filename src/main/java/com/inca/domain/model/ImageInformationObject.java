@@ -5,12 +5,12 @@ import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,10 +36,10 @@ public class ImageInformationObject extends InformationObject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@Embedded
 	private List<DetectedObject> detectedObjects;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@Embedded
 	private List<DetectedText> detectedTexts;
 	
 	@Column
@@ -51,13 +51,13 @@ public class ImageInformationObject extends InformationObject {
 	@Column
 	private int height;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<Topic> topics;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<NamedEntity> entities;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@Embedded
 	private List<TableData> tables;
 	
 	public String getFullText() {

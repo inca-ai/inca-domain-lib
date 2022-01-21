@@ -71,7 +71,7 @@ public class InformationObject {
 	@Embedded
 	private List<Coordinate> coordinates;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<Tag> tags;
 	
 	@ElementCollection
