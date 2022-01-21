@@ -43,7 +43,7 @@ public class InformationObject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="file_id")
 	private FileInformation file;
 	
