@@ -3,6 +3,7 @@ package com.inca.domain.model;
 import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,12 +46,12 @@ public class DocumentInformationObject extends InformationObject {
 	@Column
 	private Locale language;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Topic> topics;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<NamedEntity> entities;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<TableData> tables;
 }

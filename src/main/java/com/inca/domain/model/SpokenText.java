@@ -2,6 +2,7 @@ package com.inca.domain.model;
 
 import java.util.Locale;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public class SpokenText {
 	@Column
 	private Locale language;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Speaker speaker;
 	
 	@Column

@@ -3,6 +3,7 @@ package com.inca.domain.model;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,13 +37,13 @@ public class VideoInformationObject extends InformationObject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<SpokenText> spokenTexts;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<DetectedObject> detectedObjects;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<DetectedText> detectedTexts;
 	
 	@Column
@@ -51,10 +52,10 @@ public class VideoInformationObject extends InformationObject {
 	@Column
 	private int height;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Topic> topics;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<NamedEntity> entities;
 	
 	@Column
@@ -63,7 +64,7 @@ public class VideoInformationObject extends InformationObject {
 	@Lob
 	private String text;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<TableData> tables;
 
 	public List<Speaker> getAllSpeakers() {
