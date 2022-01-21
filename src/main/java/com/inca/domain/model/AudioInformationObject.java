@@ -43,7 +43,7 @@ public class AudioInformationObject extends InformationObject {
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Topic> topics;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<NamedEntity> entities;
 	
 	@Lob
