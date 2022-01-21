@@ -23,5 +23,5 @@ public class Revision {
 	private User user;
 	private Date date;
 	private String comment;
-	private List<User> approvedByUsers;
+	private List<Long> approvedByUserIds;
 }

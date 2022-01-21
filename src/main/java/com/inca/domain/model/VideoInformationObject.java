@@ -65,7 +65,7 @@ public class VideoInformationObject extends InformationObject {
 	private String text;
 	
 	@Lob
-	private List<String> table;
+	private List<String> tables;
 
 	public List<Speaker> getAllSpeakers() {
 		return spokenTexts.stream().map(x -> x.getSpeaker()).collect(Collectors.toList());
