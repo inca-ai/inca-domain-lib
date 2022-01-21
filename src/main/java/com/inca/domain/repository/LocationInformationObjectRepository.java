@@ -1,5 +1,7 @@
 package com.inca.domain.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,4 +14,5 @@ import com.nooul.apihelpers.springbootrest.repositories.BaseRepository;
 public interface LocationInformationObjectRepository extends BaseRepository<LocationInformationObject, Long> {
 	public Page<LocationInformationObject> findAll(Pageable pageable);
 	public Page<LocationInformationObject> findAll(Specification<LocationInformationObject> spec, Pageable pageable);
+	public Optional<LocationInformationObject> findByFileId(Long fileId);
 }
