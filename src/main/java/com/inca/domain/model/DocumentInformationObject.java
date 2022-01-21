@@ -5,7 +5,6 @@ import java.util.Locale;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -52,6 +51,6 @@ public class DocumentInformationObject extends InformationObject {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<NamedEntity> entities;
 	
-	@Embedded
-	private List<TableData> tables;
+	@Lob
+	private List<String> tables;
 }

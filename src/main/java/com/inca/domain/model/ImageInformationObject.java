@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -57,8 +58,8 @@ public class ImageInformationObject extends InformationObject {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<NamedEntity> entities;
 	
-	@Embedded
-	private List<TableData> tables;
+	@Lob
+	private List<String> tables;
 	
 	public String getFullText() {
 		return detectedTexts.stream().map(x -> x.getText()).collect(Collectors.joining(" "));
