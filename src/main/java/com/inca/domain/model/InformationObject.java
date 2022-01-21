@@ -21,8 +21,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.history.Revisions;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -82,7 +80,7 @@ public class InformationObject {
 	@ElementCollection
 	private List<Long> accessUsers;
 	
-	@ElementCollection(targetClass = Revisions.class)
+	@ElementCollection(targetClass = Revision.class)
 	private List<Revision> revisions;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
